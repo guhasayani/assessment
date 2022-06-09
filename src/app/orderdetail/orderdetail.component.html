@@ -1,4 +1,4 @@
-<div class="body">
+<div class="orderTable">
     <h1>Order Details</h1>
     <table class="css-serial">
         <thead>
@@ -17,9 +17,9 @@
             <td>{{orders.orderName}}</td>
             <td>{{orders.amount}}</td>
             <td class="icon">
-               <button class="view" (click)="passValue(i)"><img src="./assets/view.png" height="30px" width="30px"></button>
-               <button class="edit" (click)="editValue(i)"><img src="./assets/edit.png" height="30px" width="30px"></button>
-               <button class="delete" (click)="delValue(i)"><img src="./assets/delete.png" height="30px" width="30px"></button>
+               <button class="view" (click)="viewOrderItems(i)"><img src="./assets/view.png" height="30px" width="30px"></button>
+               <button class="edit" (click)="editOrders(i)"><img src="./assets/edit.png" height="30px" width="30px"></button>
+               <button class="delete" (click)="delOrder(i)"><img src="./assets/delete.png" height="30px" width="30px"></button>
             </td>
             </tr>
         </tbody>
@@ -36,8 +36,8 @@
             <input placeholder="Amount" [(ngModel)]="amount">
         </div>
         <div>
-            <button class="add" (click)="addRow()">Add</button>
-            <button class="cancel" (click)="cancel()">Cancel</button>
+            <button class="add" (click)="addOrder()">Add</button>
+            <button class="cancel" (click)="cancelOrder()">Cancel</button>
         </div>
     </div>
     <ng-template #elseBlock>
@@ -48,7 +48,7 @@
 
 <!-- //new div// -->
 
-<div class="body1" *ngIf="btn3, else elseBlock2">
+<div class="itemTable" *ngIf="btn3, else elseBlock2">
     <h1>{{item}} Details</h1>
     <table class="css-serial">
         <thead>
@@ -68,8 +68,8 @@
                 <td>{{items.itemName}}</td>
                 <td>{{items.iamount}}</td>
                 <td class="icon">
-                   <button class="edit" (click)="editValue1(a)"><img src="./assets/edit.png" height="30px" width="30px"></button>
-                   <button class="delete" (click)="delValue1(a)"><img src="./assets/delete.png" height="30px" width="30px"></button>
+                   <button class="edit" (click)="editOrderItems(a)"><img src="./assets/edit.png" height="30px" width="30px"></button>
+                   <button class="delete" (click)="delOrderItems(a)"><img src="./assets/delete.png" height="30px" width="30px"></button>
                 </td>
             </tr>
         </tbody>
@@ -86,8 +86,8 @@
             <input placeholder="Amount" [(ngModel)]="iamount">
         </div>
         <div>
-            <button class="add" (click)="addRow1()">Add</button>
-            <button class="cancel" (click)="cancel1()">Cancel</button>
+            <button class="add" (click)="addOrderItem()">Add</button>
+            <button class="cancel" (click)="cancelOrderItem()">Cancel</button>
         </div>
     </div>
     <ng-template #elseBlock1>

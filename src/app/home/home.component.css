@@ -1,12 +1,12 @@
 .body{
     width:40%;
-    font-size: 40px;
     color:brown;
     align-items: center;
     justify-content: center;
     margin-top: 5%;
     margin-left: 26%;
     padding:30px;
+    /* border:2px solid red; */
 }
 button{
     font-size: 30px;
@@ -17,4 +17,7 @@ button{
     border-radius: 40px;
     margin-top: 20px;
     margin-left: 40%;
+}
+.wlcm{
+    margin-left: 32%;
 }

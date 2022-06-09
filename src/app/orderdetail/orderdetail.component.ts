@@ -15,15 +15,15 @@ export class OrderdetailComponent implements OnInit {
   itemId:any;
   itemName:any;
   iamount:any;
-  flag:any = false;
-  flag1:any = false;
-  flag3:any= 0;
+  isEditOrder:any = false;
+  isEditOrderItem:any = false;
+  showOrderInput:any= 0;
   btn:any;
-  flag4:any = 0;
+  showItemInput:any = 0;
   btn1:any;
   btn3:any = false;
-  index:any;
-  index1:any;
+  orderEditIndex:any;
+  itemEditIndex:any;
   item:any;
 
 
@@ -35,8 +35,8 @@ export class OrderdetailComponent implements OnInit {
   openInput(){
 
   }
-  addRow(){
-    if(this.flag == false){
+  addOrder(){
+    if(this.isEditOrder == false){
       this.orderList.push({
         orderID: this.orderID,
         orderName: this.orderName,
@@ -44,35 +44,35 @@ export class OrderdetailComponent implements OnInit {
         list: []
       })
     }else{
-      this.orderList[this.index].orderID = this.orderID;
-      this.orderList[this.index].orderName = this.orderName;
-      this.orderList[this.index].amount = this.amount;
-    }
-
+      this.orderList[this.orderEditIndex].orderID = this.orderID;
+      this.orderList[this.orderEditIndex].orderName = this.orderName;
+      this.orderList[this.orderEditIndex].amount = this.amount;
+    };
     console.log(this.orderList);
     this.orderID="";
     this.orderName="";
-    this.amount=""
+    this.amount="";
+    this.isEditOrder = false;
   }
   
-  passValue(v:any){
+  viewOrderItems(v:any){
     this.val=v;
     this.orderList2=this.orderList[this.val].list;
     this.btn3 = true;
     this.item = this.orderList[this.val].orderName;
   }
 
-  addRow1(){
-    if(this.flag1 == false){
+  addOrderItem(){
+    if(this.isEditOrderItem == false){
       this.orderList[this.val].list.push({
         itemId: this.itemId,
         itemName: this.itemName,
         iamount: this.iamount
     })
     }else{
-      this.orderList[this.val].list[this.index1].itemId = this.itemId;
-      this.orderList[this.val].list[this.index1].itemName = this.itemName;
-      this.orderList[this.val].list[this.index1].iamount = this.iamount;
+      this.orderList[this.val].list[this.itemEditIndex].itemId = this.itemId;
+      this.orderList[this.val].list[this.itemEditIndex].itemName = this.itemName;
+      this.orderList[this.val].list[this.itemEditIndex].iamount = this.iamount;
     }
     
     console.log(this.orderList[this.val].list[this.val])
@@ -80,42 +80,43 @@ export class OrderdetailComponent implements OnInit {
     console.log(this.orderList)
     this.itemId='';
     this.itemName='';
-    this.iamount=''
+    this.iamount='';
+    this.isEditOrderItem = false;
   }
-  delValue(i:any){
+  delOrder(i:any){
     this.orderList.splice(i,1);
   }
-  delValue1(del:any){
+  delOrderItems(del:any){
     this.orderList[this.val].list.splice(del,1)
   }
-  editValue(i:any){
-    this.flag = true;
-    this.index = i;
+  editOrders(i:any){
+    this.isEditOrder = true;
+    this.orderEditIndex = i;
     this.orderID=this.orderList[i].orderID;
     this.orderName=this.orderList[i].orderName;
     this.amount=this.orderList[i].amount;
   }
-  editValue1(i:any){
-    this.flag1 = true;
-    this.index1 = i;
+  editOrderItems(i:any){
+    this.isEditOrderItem = true;
+    this.itemEditIndex = i;
     this.itemId=this.orderList[this.val].list[i].itemId;
     this.itemName=this.orderList[this.val].list[i].itemName;
     this.iamount=this.orderList[this.val].list[i].iamount;
   }
-  cancel(){
+  cancelOrder(){
     this.orderID="";
     this.orderName="";
     this.amount=""
   }  
-  cancel1(){
+  cancelOrderItem(){
     this.itemId='';
     this.itemName='';
     this.iamount=''
   }
   btnToggle(){
-    this.flag3++;
-    console.log(this.flag3);
-    if((this.flag3)%2 == 0){
+    this.showOrderInput++;
+    console.log(this.showOrderInput);
+    if((this.showOrderInput)%2 == 0){
       this.btn = false;
       console.log(this.btn);
     }else{
@@ -124,9 +125,9 @@ export class OrderdetailComponent implements OnInit {
     }
   }
   btnToggle1(){
-    this.flag4++;
-    console.log(this.flag4);
-    if((this.flag4)%2 == 0){
+    this.showItemInput++;
+    console.log(this.showItemInput);
+    if((this.showItemInput)%2 == 0){
       this.btn1 = false;
       console.log(this.btn1);
     }else{
