@@ -24,6 +24,7 @@ export class OrderdetailComponent implements OnInit {
   btn3:any = false;
   index:any;
   index1:any;
+  item:any;
 
 
 
@@ -58,6 +59,7 @@ export class OrderdetailComponent implements OnInit {
     this.val=v;
     this.orderList2=this.orderList[this.val].list;
     this.btn3 = true;
+    this.item = this.orderList[this.val].orderName;
   }
 
   addRow1(){
