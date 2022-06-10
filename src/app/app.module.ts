@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { FormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

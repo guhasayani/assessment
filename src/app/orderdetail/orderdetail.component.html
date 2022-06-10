@@ -17,9 +17,9 @@
             <td>{{orders.orderName}}</td>
             <td>{{orders.amount}}</td>
             <td class="icon">
-               <button class="view" (click)="viewOrderItems(i)"><img src="./assets/view.png" height="30px" width="30px"></button>
-               <button class="edit" (click)="editOrders(i)"><img src="./assets/edit.png" height="30px" width="30px"></button>
-               <button class="delete" (click)="delOrder(i)"><img src="./assets/delete.png" height="30px" width="30px"></button>
+               <mat-icon class="view" (click)="viewOrderItems(i)">visibility</mat-icon>
+               <mat-icon class="edit" (click)="editOrders(i)">edit</mat-icon>
+               <mat-icon class="delete" (click)="delOrder(i)">delete</mat-icon>
             </td>
             </tr>
         </tbody>
@@ -68,8 +68,8 @@
                 <td>{{items.itemName}}</td>
                 <td>{{items.iamount}}</td>
                 <td class="icon">
-                   <button class="edit" (click)="editOrderItems(a)"><img src="./assets/edit.png" height="30px" width="30px"></button>
-                   <button class="delete" (click)="delOrderItems(a)"><img src="./assets/delete.png" height="30px" width="30px"></button>
+                   <mat-icon class="edit" (click)="editOrderItems(a)">edit</mat-icon>
+                   <mat-icon class="delete" (click)="delOrderItems(a)">delete</mat-icon>
                 </td>
             </tr>
         </tbody>
